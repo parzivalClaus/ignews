@@ -4,16 +4,12 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import { getStripeJs } from "../../services/stripe-js";
 import styles from "./styles.module.scss";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
-interface SubscribeButtonProps {
-  priceId: string;
-}
-
-export function SubscribeButton({ priceId }: SubscribeButtonProps) {
+export function SubscribeButton() {
   const [loading, setLoading] = useState(false);
   const [session] = useSession();
-  const {} = useRouter();
+  const router = useRouter();
 
   async function handleSubscribe() {
     if (!session) {
